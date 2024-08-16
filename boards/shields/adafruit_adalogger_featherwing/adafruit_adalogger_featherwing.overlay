@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2024 Philip-Dylan Gleonec <philip-dylan@gleonec.bzh>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		rtc = &rtc0_adafruit_adalogger_featherwing;
+	};
+};
+
+&feather_i2c {
+	status = "okay";
+
+	rtc0_adafruit_adalogger_featherwing: rtc@68 {
+		compatible = "nxp,pcf8523";
+		reg = <0x68>;
+		alarms-count = <1>;
+		battery-switch-over = "standard";
+		status = "okay";
+	};
+};
